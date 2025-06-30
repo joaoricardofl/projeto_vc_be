@@ -36,10 +36,8 @@ def reconstrucao_3(request):
         largura = pedaco_base.width
         altura = pedaco_base.height
         resultado_pedaco_base = {
-            'below':{},
             'above':{},
             'left': {},
-            'right': {}
         }        
         
         # Iteração por cada um dos outros pedaços para comparação
@@ -48,14 +46,6 @@ def reconstrucao_3(request):
             if(pedaco_base != pedaco_comparado):
                 largura_comparado = pedaco_comparado.width
                 altura_comparado = pedaco_comparado.height                
-                    
-                # Imagem a Direita
-                
-                img = combinar_img_a_direita(pedaco_base, largura, altura, pedaco_comparado, largura_comparado, altura_comparado)
-                img = preparar_imagem(img)
-                descritores = model.predict(img, verbose=1)
-                diferenca_descritores = float(descritores[0][0]-descritores[0][1])
-                resultado_pedaco_base['right'][str(indice_pedaco_comparado)] = diferenca_descritores
                 
                 # Imagem a Esquerda
                 
@@ -64,14 +54,6 @@ def reconstrucao_3(request):
                 descritores = model.predict(img, verbose=1)
                 diferenca_descritores = float(descritores[0][0]-descritores[0][1])
                 resultado_pedaco_base['left'][str(indice_pedaco_comparado)] = diferenca_descritores
-                
-                # Imagem abaixo
-                
-                img = combinar_img_abaixo(pedaco_base, largura, altura, pedaco_comparado, largura_comparado, altura_comparado)
-                img = preparar_imagem(img)
-                descritores = model.predict(img, verbose=1)
-                diferenca_descritores = float(descritores[0][0]-descritores[0][1])
-                resultado_pedaco_base['below'][str(indice_pedaco_comparado)] = diferenca_descritores
 
                 # Imagem acima
 
