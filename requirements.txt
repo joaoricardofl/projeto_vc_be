@@ -11,5 +11,4 @@ Werkzeug==1.0.1
 pillow
 numpy
 opencv-python
-tensorflow==2.19.0
-keras
+tensorflow==2.14.0
