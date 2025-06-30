@@ -11,4 +11,4 @@ Werkzeug==1.0.1
 pillow
 numpy
 opencv-python
-tensorflow==2.14.0
+tensorflow-cpu

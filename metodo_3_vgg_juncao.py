@@ -11,13 +11,6 @@ import subprocess
 TAMANHO_IMAGEM = 224
 
 def reconstrucao_3(request):
-
-    try:
-        result = subprocess.run(['nvidia-smi'], capture_output=True, text=True, check=True)
-        print("Command Output:")
-        print(result.stdout)
-    except subprocess.CalledProcessError as e:
-        print(f"Error executing command: {e}")
     
     # Carrega o modelo
     best_model_file = "vgg19_treinada_juncao.h5"
