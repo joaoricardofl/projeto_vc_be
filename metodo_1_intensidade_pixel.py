@@ -115,7 +115,9 @@ def reconstrucao_1(request):
     
     diferença_minima_do_arranjo = colunas * linhas
     
+    resultado_arranjos = []
     for arranjo in arranjos_possiveis:
+        resultado_arranjo = {}
         linha = 1
         coluna = 1
         diferenca_arranjo = 0
@@ -136,6 +138,8 @@ def reconstrucao_1(request):
         if(diferença_minima_do_arranjo > diferenca_arranjo):
             diferença_minima_do_arranjo = diferenca_arranjo
             arranjo_encontrado = arranjo
+        resultado_arranjo = {"arranjo": arranjo, "diferenca": diferenca_arranjo}
+        resultado_arranjos.append(resultado_arranjo)
                 
     
-    return jsonify({"resultado_junções": resultado, "arranjo_encontrado": arranjo_encontrado})
+    return jsonify({"resultado_junções": resultado, "arranjo_encontrado": arranjo_encontrado, "resultado_arranjos": resultado_arranjos})

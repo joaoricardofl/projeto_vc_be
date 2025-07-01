@@ -11,7 +11,7 @@ CORS(app)
 
 @app.route('/', methods=['GET'])
 def hello():
-    return jsonify({"response":"BE do projeto de VC 93dd"}) ### Alterar versão a cada deploy 1/1
+    return jsonify({"response":"BE do projeto de VC ab289"}) ### Alterar versão a cada deploy 1/1
 
 @app.route('/processar_imagem', methods=['POST'])
 def processar_imagem():

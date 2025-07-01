@@ -76,6 +76,7 @@ def reconstrucao_3(request):
     
     maior_somatorio = 0
     
+    resultado_arranjos = []
     for arranjo in arranjos_possiveis:
         linha = 1
         coluna = 1
@@ -98,7 +99,10 @@ def reconstrucao_3(request):
             maior_somatorio = somatorio_arranjo
             arranjo_encontrado = arranjo
             
-    return jsonify({"resultado_junções": resultado, "arranjo_encontrado": arranjo_encontrado})
+        resultado_arranjo = {"arranjo": arranjo, "somatorio_arranjo": somatorio_arranjo}
+        resultado_arranjos.append(resultado_arranjo)
+            
+    return jsonify({"resultado_junções": resultado, "arranjo_encontrado": arranjo_encontrado, "resultado_arranjos": resultado_arranjos})
         
 def preparar_imagem(img):
     img_resultante = img.resize((TAMANHO_IMAGEM, TAMANHO_IMAGEM), Image.LANCZOS)

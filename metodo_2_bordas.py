@@ -151,6 +151,7 @@ def reconstrucao_2(request):
     indicador_maximo = 0
         
     arranjo_encontrado = []
+    resultado_arranjos = []
     
     for arranjo in arranjos_possiveis:
         linha = 1
@@ -174,6 +175,8 @@ def reconstrucao_2(request):
         if(indicador_maximo < somatorio_indicador_arranjo):
             indicador_maximo = somatorio_indicador_arranjo
             arranjo_encontrado = arranjo
+        resultado_arranjo = {"arranjo": arranjo, "indicador": somatorio_indicador_arranjo}
+        resultado_arranjos.append(resultado_arranjo)
                 
     # Converte as peças para base64
     bordas_processadas = []
@@ -183,7 +186,7 @@ def reconstrucao_2(request):
         img_str = base64.b64encode(buffered.getvalue()).decode()
         bordas_processadas.append(f"data:image/png;base64,{img_str}")
     
-    return jsonify({"resultado_junções": resultado, "arranjo_encontrado": arranjo_encontrado, "bordas": bordas_processadas })
+    return jsonify({"resultado_junções": resultado, "arranjo_encontrado": arranjo_encontrado, "bordas": bordas_processadas, "resultado_arranjos": resultado_arranjos })
         
 def identificar_bordas(pedaco: Image.Image):
     
