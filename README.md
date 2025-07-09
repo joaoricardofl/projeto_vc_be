@@ -1,16 +1,11 @@
+# Projeto visão computacional
 
+Os seguintes passos são necessários para rodar a aplicação:
 
-python -m venv venv
+* Para ter o ambiente virtual instalado `python -m venv venv`
 
-venv\Scripts\activate
+* Para ter o ambiente virtual rodando `venv\Scripts\activate`
 
-pip install -r requirements.txt
+* Para instalar todas as dependencias `pip install -r requirements.txt`
 
-python main.py   
-
-https://projeto-vc-be-98ecd3199de7.herokuapp.com/
-
-
-https://joaoricardofl.github.io/projecto_vc_fe/
-
-git push heroku master
+* Para rodar o projeto localmente `python main.py`
